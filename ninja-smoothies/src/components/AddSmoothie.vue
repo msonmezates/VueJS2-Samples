@@ -6,9 +6,10 @@
         <label for="title">Smoothie Title:</label>
         <input type="text" name="title" v-model="title">
       </div>
-      <div v-for="(ingredient,i) in ingredients" :key="i">
+      <div class="field" v-for="(ingredient,i) in ingredients" :key="i">
         <label for="ingredient">Ingredient:</label>
         <input type="text" name="ingredient" v-model="ingredients[i]">
+        <i class="material-icons delete" @click="deleteIngredient(ingredient)">delete</i>
       </div>
       <div class="field add-ingredient">
         <label for="add-ingredient">Ad an ingredient:</label>
@@ -72,6 +73,9 @@ export default {
       } else {
         this.feedback = "You must enter an ingredient";
       }
+    },
+    deleteIngredient(ingredient) {
+      this.ingredients = this.ingredients.filter(item => item !== ingredient);
     }
   }
 };
@@ -91,6 +95,16 @@ export default {
 
 .add-smoothie .field {
   margin: 20px auto;
+  position: relative;
+}
+
+.add-smoothie .delete {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 1.4em;
 }
 </style>
 
