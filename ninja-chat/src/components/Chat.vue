@@ -1,6 +1,6 @@
 <template>
   <div class="chat container">
-    <h2>{{ name }}</h2>
+    <h2>Chat {{ name }}</h2>
   </div>
 </template>
 
