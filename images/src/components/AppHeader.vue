@@ -4,8 +4,10 @@
       Image Storage
     </a>
     <div class="right menu">
-      <div v-if="isLoggedIn">
-        show buttons
+      <div v-if="isLoggedIn" class="horizontal">
+        <a class="item">Galleries</a>
+        <a class="item">Upload</a>
+        <a class="item" @click="logout">Logout</a>
       </div>
       <a v-else href="#" class="ui item" @click="login">Login</a>
     </div>
@@ -19,7 +21,15 @@ export default {
   name: "AppHeader",
   computed: mapGetters(["isLoggedIn"]),
   methods: {
-    ...mapActions(["login"])
+    ...mapActions(["login", "logout"])
   }
 };
 </script>
+
+<style scoped>
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+</style>
+
