@@ -4,8 +4,9 @@
       <div class="container">
         <a href="" class="brand-logo left">GoeNinjas</a>
         <ul class="right">
-          <li><a href="">Sign Up</a></li>
+          <li><router-link :to="{ name: 'Signup' }">Signup</router-link></li>
           <li><a href="">Login</a></li>
+          <li><a @click="logout">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -13,10 +14,22 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
   name: "Navbar",
   data() {
     return {};
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push({ name: "Signup" });
+        });
+    }
   }
 };
 </script>
