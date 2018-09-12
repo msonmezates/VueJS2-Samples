@@ -1,4 +1,4 @@
-# geo-ninjas
+# Geo Ninjas
 
 ## Project setup
 ```
